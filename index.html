@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MindScope — Understand Your Digital Wellbeing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="bg-blobs" aria-hidden="true">
+  <span class="blob blob-teal"></span>
+  <span class="blob blob-gold"></span>
+  <span class="blob blob-plum"></span>
+</div>
+
+<header class="nav glass">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">
+      <span class="nav-mark-dot"></span>
+      MindScope
+    </a>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="nav-cta" id="navCta">Start assessment</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">A calmer way to check in with yourself</h1>
+      <p class="hero-lede">
+        MindScope reads the shape of an ordinary week — screen time, sleep,
+        study, movement, stress — and estimates a mental health score using
+        a model trained on student survey data. Twelve gentle questions, one
+        clearer number. Not a diagnosis, just a starting point.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="startBtn">Start assessment</button>
+      </div>
+      <dl class="hero-stats glass">
+        <div><dt>12</dt><dd>inputs collected</dd></div>
+        <div><dt>&lt;1 min</dt><dd>to complete</dd></div>
+        <div><dt>0</dt><dd>data kept after your session</dd></div>
+      </dl>
+    </div>
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 320 320" class="hero-orbit">
+        <circle cx="160" cy="160" r="120" class="orbit-ring orbit-ring-1"/>
+        <circle cx="160" cy="160" r="90"  class="orbit-ring orbit-ring-2"/>
+        <circle cx="160" cy="160" r="60"  class="orbit-ring orbit-ring-3"/>
+        <circle cx="160" cy="40"  r="5" class="orbit-node n1"/>
+        <circle cx="270" cy="200" r="4" class="orbit-node n2"/>
+        <circle cx="90"  cy="250" r="4" class="orbit-node n3"/>
+        <circle cx="60"  cy="120" r="3.5" class="orbit-node n4"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="assessment" id="assessment">
+    <div class="assessment-head">
+      <h2>The assessment</h2>
+      <p>Answer honestly — there are no wrong habits, only data points. Every field maps directly to something the model was trained on.</p>
+    </div>
+
+    <form id="assessmentForm" class="form glass" novalidate>
+
+      <fieldset class="form-group">
+        <legend>
+          <span class="legend-index">01</span>
+          <span>Personal information</span>
+        </legend>
+        <div class="form-grid">
+          <div class="field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="10" max="100" step="1" placeholder="e.g. 21" required />
+            <p class="field-hint">Between 10 and 100</p>
+            <p class="field-error" data-error-for="age"></p>
+          </div>
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <p class="field-error" data-error-for="gender"></p>
+          </div>
+          <div class="field">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="e.g. Pakistan" required />
+            <p class="field-error" data-error-for="country"></p>
+          </div>
+          <div class="field">
+            <label for="academic_level">Academic level</label>
+            <select id="academic_level" name="academic_level" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="High School">High School</option>
+              <option value="Undergraduate">Undergraduate</option>
+              <option value="Graduate">Graduate</option>
+            </select>
+            <p class="field-error" data-error-for="academic_level"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <legend>
+          <span class="legend-index">02</span>
+          <span>Digital usage</span>
+        </legend>
+        <div class="form-grid">
+          <div class="field">
+            <label for="most_used_platform">Most used platform</label>
+            <select id="most_used_platform" name="most_used_platform" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Facebook</option>
+              <option>LinkedIn</option>
+              <option>Instagram</option>
+              <option>Snapchat</option>
+              <option>Twitter</option>
+              <option>YouTube</option>
+              <option>TikTok</option>
+              <option>LINE</option>
+              <option>KakaoTalk</option>
+              <option>VKontakte</option>
+              <option>WhatsApp</option>
+              <option>WeChat</option>
+            </select>
+            <p class="field-error" data-error-for="most_used_platform"></p>
+          </div>
+          <div class="field">
+            <label for="purpose_of_use">Primary purpose</label>
+            <select id="purpose_of_use" name="purpose_of_use" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Networking">Networking</option>
+              <option value="Education">Education</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="News">News</option>
+            </select>
+            <p class="field-error" data-error-for="purpose_of_use"></p>
+          </div>
+          <div class="field">
+            <label for="avg_daily_usage_hours">Average daily usage (hrs)</label>
+            <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" placeholder="e.g. 4.5" required />
+            <p class="field-hint">Between 0 and 24</p>
+            <p class="field-error" data-error-for="avg_daily_usage_hours"></p>
+          </div>
+          <div class="field">
+            <label for="daily_unlocks">Daily phone unlocks</label>
+            <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" placeholder="e.g. 60" required />
+            <p class="field-hint">0 or more</p>
+            <p class="field-error" data-error-for="daily_unlocks"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <legend>
+          <span class="legend-index">03</span>
+          <span>Lifestyle</span>
+        </legend>
+        <div class="form-grid">
+          <div class="field">
+            <label for="study_hours">Study hours per day</label>
+            <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" placeholder="e.g. 3" required />
+            <p class="field-hint">Between 0 and 24</p>
+            <p class="field-error" data-error-for="study_hours"></p>
+          </div>
+          <div class="field">
+            <label for="physical_activity_hours">Physical activity (hrs/day)</label>
+            <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.1" placeholder="e.g. 1" required />
+            <p class="field-hint">Between 0 and 24</p>
+            <p class="field-error" data-error-for="physical_activity_hours"></p>
+          </div>
+          <div class="field">
+            <label for="sleep_hours_per_night">Sleep per night (hrs)</label>
+            <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" placeholder="e.g. 7" required />
+            <p class="field-hint">Between 0 and 24</p>
+            <p class="field-error" data-error-for="sleep_hours_per_night"></p>
+          </div>
+          <div class="field">
+            <label for="stress_level">Stress level</label>
+            <select id="stress_level" name="stress_level" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Very High">Very High</option>
+            </select>
+            <p class="field-error" data-error-for="stress_level"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-footer">
+        <p class="form-footer-note">Nothing you enter here is stored — it's sent once, scored, and forgotten.</p>
+        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+          <span class="btn-label">Predict my score</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="result glass" id="resultCard" hidden>
+      <div class="result-gauge">
+        <svg viewBox="0 0 200 200" class="gauge-svg">
+          <circle cx="100" cy="100" r="86" class="gauge-track" />
+          <circle cx="100" cy="100" r="86" class="gauge-fill" id="gaugeFill" />
+        </svg>
+        <div class="gauge-center">
+          <span class="gauge-number" id="scoreNumber">0</span>
+          <span class="gauge-label" id="scoreLabel">—</span>
+        </div>
+      </div>
+      <div class="result-copy">
+        <h3>Your estimated mental health score</h3>
+        <button class="btn btn-ghost" id="retakeBtn">Retake assessment</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <p>
+        The score is a research estimate, not a clinical assessment. If
+        you're struggling, please talk to someone you trust or a
+        professional.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>MindScope</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

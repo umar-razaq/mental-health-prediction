@@ -5,12 +5,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Literal
-
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 model = joblib.load("Mental_Health_Model.pkl")
 
 app = FastAPI()
-
+app.mount("/static", StaticFiles(directory="."), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -100,11 +101,8 @@ class PredictionResponse(BaseModel):
 
 
 @app.get("/")
-def greet():
-    return {
-        "message": "Welcome"
-    }
-
+def serve_frontend():
+    return FileResponse("index.html")
 
 top_countries = [
     "India",

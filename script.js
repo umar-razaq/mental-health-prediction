@@ -4,8 +4,7 @@
    Config
    ========================================================================== */
 
-const API_URL = "http://127.0.0.1:8000/predict";
-
+const API_URL = "/predict";
 // Editable score bands used only for the small label under the gauge.
 // These are descriptive, not diagnostic — change freely.
 const SCORE_BANDS = [
